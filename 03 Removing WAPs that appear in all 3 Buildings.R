@@ -9,7 +9,7 @@ pacman::p_load(readr, tidyverse, caret, doParallel,reshape2, ggplot2, tidyr, dpl
 
 # Load data
 
-train <- read.csv("preprocessedTraining.csv")
+train <- read.csv("preprocessedTrainingAnomaliesRemoved.csv")
 valid <- read.csv("preprocessedValidation.csv")
 
 
@@ -62,7 +62,7 @@ RepeatedWAPS
 
 # Examine and remove WAP 248
 
-WAP248 <- df[df$HighWAP=="WAP248",466:475]
+WAP248 <- df[df$HighWAP=="WAP248",465:474]
 
 plot(LATITUDE ~ LONGITUDE, data = df, pch = 20, col = "grey")
 points(LATITUDE ~ LONGITUDE, data=WAP248[WAP248$source=="train",], pch=20, col="blue")
@@ -72,7 +72,7 @@ df$WAP248 <- NULL
 
 # Examine and remove WAP 001
 
-WAP001 <- df[df$HighWAP=="WAP001",466:475]
+WAP001 <- df[df$HighWAP=="WAP001",465:474]
 
 plot(LATITUDE ~ LONGITUDE, data = df, pch = 20, col = "grey")
 points(LATITUDE ~ LONGITUDE, data=WAP001[WAP001$source=="train",], pch=20, col="blue")
